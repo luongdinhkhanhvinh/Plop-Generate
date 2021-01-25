@@ -1,0 +1,50 @@
+{{#if (Contains hook "useState")}}
+  const [state, setstate] = useState("initialState");
+{{/if}}
+{{#if (Contains hook "useEffect")}}
+  useEffect(
+    () => {
+      //effect
+      return () => {
+        //cleanup
+      };
+    },
+    [
+      /*input*/
+    ]
+  );
+{{/if}}
+{{#if (Contains hook "useContext")}}
+  const context = useContext(contextValue);
+{{/if}}
+{{#if (Contains hook "useReducer")}}
+  const [state, dispatch] = useReducer(reducer, initialState);
+{{/if}}
+{{#if (Contains hook "useCallback")}}
+  const callback = useCallback(
+    () => {
+      /*doSomething(a, b);*/
+    },
+    [
+      /*a, b*/
+    ]
+  );{{/if}}
+{{#if (Contains hook "useMemo")}}
+  const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+{{/if}}
+{{#if (Contains hook "useRef")}}
+  const refContainer = useRef(null);
+{{/if}}
+{{#if (Contains hook "useLayoutEffect")}}
+  useLayoutEffect(
+    () => {
+      //effect
+      return () => {
+        //cleanup
+      };
+    },
+    [
+      /*input*/
+    ]
+  );
+{{/if}}

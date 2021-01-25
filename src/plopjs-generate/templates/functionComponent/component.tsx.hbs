@@ -1,0 +1,39 @@
+import React{{NamedImport hook}} from "react";
+{{#if styled}}
+import { {{componentCase name}}Container } from "./{{fileCase name}}.styled";
+{{/if}}
+
+export interface {{componentCase name}}Props {
+  className?: string;
+}
+{{#if (Contains hook "useReducer")}}
+const initialState = {count: 0};
+
+function reducer(state, action) {
+  const {type,payload} = action;
+  switch (type) {
+    case 'increment':
+      return {count: state.count + 1};
+    case 'decrement':
+      return {count: state.count - 1};
+    default:
+      throw new Error();
+  }
+}
+{{/if}}
+const {{componentCase name}}: React.FC<{{componentCase name}}Props> = ({ className }) => {
+  {{> hooks }}
+  return (
+    {{#if styled}}
+    <{{componentCase name}}Container className={className}>
+      {{componentCase name}} works!
+    </{{componentCase name}}Container>
+    {{else}}
+    <div className={className}>
+      {{componentCase name}} works!
+    </div>
+    {{/if}}
+  );
+};
+
+export default {{componentCase name}};
